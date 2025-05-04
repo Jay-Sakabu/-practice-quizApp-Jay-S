@@ -55,10 +55,12 @@ function selectAnswer(selectedButton)
     if(selectedAnswer === correctAnswerText)
     {
         feedback.innerText = "Correct!";
+        [button1, button2, button3, button4].forEach(button => button.disabled = true);
     }
     else
     {
         feedback.innerText = `Incorrect, the correct answer was: ${correctAnswerText}`;
+        [button1, button2, button3, button4].forEach(button => button.disabled = true);
     }
 }
 
@@ -68,14 +70,11 @@ function loadNextQuestion()
     if(currentIndex < questionObject.length)
         {
             displayQuestion();
+            [button1, button2, button3, button4].forEach(button => button.disabled = false);
         }
     else
     {
         feedback.innerText = "End of quiz!";
-        button1.disabled = true;
-        button2.disabled = true;
-        button3.disabled = true;
-        button4.disabled = true;
     }
 }
 
